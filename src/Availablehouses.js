@@ -5,10 +5,25 @@
 // Make sure that we export it
 // MAke sure to import it in the parent component
 
+
+//import useState
+// initialize state using useState() const[stateVariable, stateSetterFunction] = useState()
+// keep on changing state
+
+// state variable to track total money in bank
+// const[balance, setBalance] = useState(0)
+
+import React, { useState } from "react"
+
 function Availablehouses({myHouse}){
+    const[likes, addLikes] = useState(0)   
+
+
     console.log(myHouse)
 
-    
+    function likeHouse(){
+        addLikes((likes)=>likes+=1)
+    }
 
     return(
         <>
@@ -16,6 +31,7 @@ function Availablehouses({myHouse}){
         <img src={myHouse.image}></img>
         <h3> {myHouse.landlord} </h3>
         <button>{myHouse.price}</button>
+        <button onClick={likeHouse}>{likes} Likes</button>
         </>
     )
 }
